@@ -1,0 +1,43 @@
+h1{
+    background-color: lightskyblue;
+    color: white;
+    font-size: 3em;
+    text-indent: 0.9em;
+    float:left;
+    width: 4em;
+    height: 17.9em;
+    padding-top: 1em;
+    margin: 0;
+}
+h2{
+    font-size: 1.8em;
+    text-indent: 0.8em;
+    padding-top: 1em;
+}
+ul{
+    list-style: none;
+    font-size: 1.2em;
+}
+li{
+   font-weight: bold;
+   text-align:left;
+   text-indent: 1.1em;
+
+}
+.basicinfo > li, 
+.contactinfo > li{
+    display:inline;
+    margin-left: 1.1em;
+}
+
+div{
+    padding: 0.5em;
+    font-weight: normal;
+    display: inline;
+}
+p{
+    line-height: 0.1em;
+}
+.candolist > li{
+    padding-bottom: clear;
+}
