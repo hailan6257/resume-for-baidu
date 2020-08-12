@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: -apple-system,"Segoe UI",sans-serif;
+          
+        }
+        header{
+           
+            background-image:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image1.png");
+            background-color: rgb(95, 93, 93);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            margin:0 0;
+            text-align: center;
+            padding-top: 130px;
+            padding-bottom: 130px;
+        }
+        #title > div:first-child{
+            color:rgb(233, 230, 225);
+            font-size: 40px;
+            margin-bottom: 80px;
+            font-weight: 10;
+        }
+        #title > div:nth-child(2){
+            color:rgb(207, 205, 202);
+            font-size: 18px;
+            padding-left:350px;
+            padding-right:350px;
+            font-weight: 10;
+            margin-bottom: 100px;
+        }
+        #account{
+            border:1px solid rgb(160, 159, 159);
+            margin-left: 320px;
+            margin-right:320px;
+            padding:20px 20px 15px 20px;
+        }
+        #account > div:first-child{
+            color:rgb(207, 205, 202);
+            margin-bottom: 10px;
+        }
+        #account > div:nth-child(2){
+            color: rgb(165, 163, 163);
+            font-size:12px;
+
+        }
+        #loggingzone{
+            color:rgb(247, 243, 236);
+            margin:15px auto;
+        }
+        #loggingzone > div{
+            display:inline-block;
+            border:1px solid grey;
+            font-size: 12px; 
+        }
+        #loggingzone > div:nth-child(1){
+            padding:10px 40px 10px 15px;
+            margin:20px;
+        }
+        #loggingzone > div:nth-child(2){
+            padding:10px 40px 10px 15px;
+            margin:20px;
+            color:grey;
+        }
+        #loggingzone > div:nth-child(3){
+            padding:10px 15px 10px 15px;
+            margin:20px;
+            color:black;
+            background-color: white;
+        }
+        .landingpage{
+            text-align: center;
+            margin:50px auto;
+        }
+        .landingpage > div:first-child{
+            font-size: 14px;
+            margin:15px;
+        }
+        .landingpage > div:nth-child(2){
+            font-size:38px;
+            padding-left: 340px;
+            padding-right: 340px;
+            font-weight: 100;
+            margin-bottom: 20px;
+        }
+        #highlights{
+            display: flex;
+            flex-wrap: wrap;
+            text-align: left;
+        }
+        #mobile, #accessibility, #typography, #customization{
+            width:50%;
+            height:150px;
+            position: relative;
+           
+        }
+        #mobile > div, #accessibility > div, #typography > div, #customization > div{
+            display:inline-block;
+            position:absolute;
+        }
+        #mobile > div:first-child {
+            left:89px;
+            top:28px;
+        }
+        #mobile > div:nth-child(2) {
+            left:140px;
+            top:0;
+        }
+        #accessibility > div:first-child {
+            left:85px;
+            top:28px;
+        }
+        #accessibility  > div:nth-child(2) {
+            left:140px;
+            top:0;
+        }
+        #typography > div:first-child {
+            left:80px;
+            top:28px;
+        }
+        #typography > div:nth-child(2) {
+            left:140px;
+            top:0;
+        }
+        #customization > div:first-child {
+            left:80px;
+            top:28px;
+        }
+        #customization > div:nth-child(2) {
+            left:140px;
+            top:0;
+        }
+        #highlights p:first-child{
+            font-size: 18px;
+            font-weight: 600;
+        }
+        #highlights p:nth-child(2){
+            word-break: break-word;
+            width:450px;
+        }
+        .policies{
+            background-color: rgb(73, 73, 73);
+            background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image2.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            position: relative;  
+            padding-bottom: 140px;
+            height:500px;
+            overflow: hidden;
+        }
+        #trail{
+            width:40%;           
+            padding-left:40px;
+            display:inline-block;
+        }
+        #trail > div:first-child{
+            color: white;
+            font-size: 38px;
+            position:absolute;
+            width:30%;
+            top:100px;
+            left:120px;
+            font-weight: 70;
+        }
+        #trail > div:nth-child(2){
+            color: white;
+            font-size: 18px;
+            position:absolute;
+            width:25%;
+            top:220px;
+            left:120px;
+            font-weight: 70;
+        }
+        #trailbutton{
+            position:absolute;
+            left:120px;
+            bottom:140px;
+            font-size: 14px;
+        }
+        #trailbutton > div:nth-child(1){
+            display:inline-block;
+            background-color: white;            
+            padding:14px 20px;
+            margin-right: 25px;
+        }
+        #trailbutton > div:nth-child(2){
+            display:inline-block;
+            border:1px solid white;
+            color:white;
+            padding:14px 48px;           
+        }
+        #materials{
+           border:1px solid white;
+           width:50%;
+           height:70%;
+           position:absolute;
+           right:-120px;
+           top:130px;
+           border-radius: 18px;
+        }
+        img.screenshot{
+            width:90%;
+            height:90%;
+            position:absolute;
+            left:60px;
+            top:25px;           
+        }
+        .products{
+            text-align: center;
+            border-bottom: 1px solid rgb(197, 195, 195);
+        }
+        .products > div:nth-child(1){
+            text-align: center;
+            font-size: 28px;
+            font-weight: 400;
+            margin:40px;
+        }
+        #products{
+            display: flex;
+        }
+        #singleton, #hero, #portland{
+            padding:80px;
+        }
+        .demonstration{
+            border-bottom: 1px solid rgb(197, 195, 195);
+        }
+        #demonstrationone,#demonstrationtwo{
+            display:flex;
+        }
+        #demonstrationone > img{
+            margin:35px;
+            width:40%;
+            height:300px;
+        }
+        #demonstrationtwo > img{
+            margin:35px;
+            width:40%;
+            height:300px;
+        }
+        #demonstrationone > div{
+            margin:35px;
+            width:40%;
+            height:300px;
+        }
+        #demonstrationtwo > div{
+            margin:35px;
+            width:40%;
+            height:300px;
+        }
+        .demonstration  p:nth-child(1){
+            font-size:20px;
+            font-weight: 480;
+        }
+        .crew{
+            width:100%;
+            height:800px;
+            border-bottom: 1px solid rgb(197, 195, 195);
+        }
+        #awesomecrew{
+            width:60%;
+            margin:80px auto 40px auto;
+            text-align: center;
+        }
+        #awesomecrew > p:nth-child(1){
+            font-size:30px;
+            font-weight:290;
+        }
+        #awesomecrew > p:nth-child(2){
+            font-size:20px;
+            font-weight:290;
+        }
+        #crewpics{
+            position:relative;
+            height:600px;
+            width:100%;
+        }
+        .show{
+            position:absolute;
+        }
+        #crewpics > div:nth-child(1){
+            background-image: url("https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/%E5%BC%A0%E6%80%9D%E8%BF%9C%E5%A4%A7.png");
+            background-size:100%;
+            background-repeat: no-repeat;
+            width:329px;
+            height:238px;
+            top:50px;
+            left:330px;
+        }
+        #crewpics > div:nth-child(2){
+            background-image: url("https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/2.png");
+            background-size:100%;
+            background-repeat: no-repeat;
+            width:329px;
+            height:238px;
+            top:50px;
+            right:330px;
+        }
+        #crewpics > div:nth-child(3){
+            background-image: url("https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/3.png");
+            background-size:100%;
+            background-repeat: no-repeat;
+            width:329px;
+            height:238px;
+            bottom:50px;
+            left:330px;
+        }
+        #crewpics > div:nth-child(4){
+            background-image: url("https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/%E6%B2%88%E5%A4%A7%E5%B8%88%E5%A4%A7_meitu_3.png");
+            background-size:100%;
+            background-repeat: no-repeat;
+            width:329px;
+            height:238px;
+            bottom:50px;
+            right:330px;
+        }
+        .hide{
+            background-size:100%;
+            background-repeat: no-repeat;
+            background-color: rgb(78, 77, 77);
+            height:100%;
+            opacity: 0.7;
+            display:none;
+        }
+        .show:hover .hide{
+            cursor: pointer;
+            display:block;
+        }
+        .expertinfo > p:nth-child(1){
+            color:white;
+            font-size: 25px;
+            text-align: center;
+            margin-top:0;
+            padding-top: 20px;;
+            font-weight:150;
+        }
+        .expertinfo > p:nth-child(2){
+            color:white;
+            font-size: 13px;
+            text-align: center;
+            font-weight: 10;
+        }
+        .socialmedia{
+            position: absolute;
+            left:17%;
+            top:50%;
+            width:100%;
+        }
+        .socialmedia > div{
+            border:1px solid white;
+            border-radius: 100%;
+            width:30px;
+            height:30px;
+            display:inline-block;
+            margin-left: 30px;;
+            position: relative;
+        }
+        .socialmedia img{
+            position: absolute;
+            left:35%;
+            top:20%;
+        }
+        .contacts{
+            position:relative;
+            height:450px;
+        }
+        #left{
+            border:1px solid rgb(197, 195, 195);
+            border-radius: 3%;
+            position: absolute;
+            left:190px;
+            top:50px;
+            height:350px;
+            width:25%;
+        }
+        #right{
+            position: absolute;
+            top:30px;
+            right:290px;
+            height:300px;
+            width:30%;
+        }
+        #left > div:nth-child(1){
+            font-size: 17px;
+            text-align: center;
+            padding-top: 20px;
+        }
+        #left > div:nth-child(2){
+            font-size: 15px;
+            font-weight: 100;
+            padding-left: 19px;
+            border:1px solid rgb(197, 195, 195);
+            width: 80%;
+            margin-left: 23px;
+            margin-top: 15px;
+            padding-top:5px;
+            padding-bottom:5px;
+        }
+        #left > div:nth-child(3){
+            font-size: 15px;
+            font-weight: 100;
+            padding-left: 19px;
+            border:1px solid rgb(197, 195, 195);
+            width: 80%;
+            margin-left: 23px;
+            margin-top: 15px;
+            padding-top:5px;
+            padding-bottom:5px;
+        }
+        #left > div:nth-child(4){
+            font-size: 15px;
+            font-weight: 100;
+            padding-left: 19px;
+            border:1px solid rgb(197, 195, 195);
+            width: 80%;
+            margin-left: 23px;
+            margin-top: 15px;
+            padding-top:5px;
+            padding-bottom:65px;
+        }
+        #left > div:nth-child(5){
+            font-size: 15px;
+            font-weight: 100;
+            padding-left: 10px;
+            padding-right: 9px;
+            border:1px solid rgb(197, 195, 195);
+            width: 80%;
+            margin-left: 23px;
+            margin-top: 25px;
+            padding-top:5px;
+            padding-bottom:5px;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+        #right > :nth-child(1){
+            font-size: 29px;
+            margin-top: 59px;
+        }
+        #map{
+            margin-top: 18px;
+        }
+        #map > div, #phone > div, #mail > div{
+            display: inline-block;
+        }
+        footer{
+            color: rgb(163, 162, 162);
+            background-color: black;
+            font-weight: 20;
+            position: relative;
+        }
+        footer > div{
+            display: inline-block;
+            margin:78px;
+        }
+        footer p:nth-child(1){
+            font-weight: 700;
+            color:white;           
+        }
+        .enjoylife{
+            position: absolute;
+            top:0;
+            right:48px;
+        }
+        .enjoylife > p:nth-child(2){
+            width:60%;
+        }
+        #mediaicons > div{
+            display:inline-block;
+            margin-right: 18px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="title">
+            <div>Hello World</div>
+            <div>China is speeding up strategic plan, traffic rules, laws and regulations on 
+                accident-incurred liabilities for its smart car industry. Economic information Daily reported 
+                Thursday.
+            </div>
+        </div>        
+        <div id="account">
+            <div>CREAT YOUR ACCOUNT</div>
+            <div>IT IS ABSOLUTELY FREE</div>
+            <div id="loggingzone">
+                <div>hailan6257@163.com</div>
+                <div>Create your password</div>
+                <div>SIGN UP</div>
+            </div>
+        </div> 
+    </header>
+    <div class="landingpage">
+       <div>BOATLOADS OF AWESOME</div>
+       <div>Ready-made, customizable, HTML, landing page sections</div>
+       <div id="highlights">
+        <div id="mobile">
+            <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Iphone%20Icon.png"></div>
+            <div>
+                <p>Mobile First</p>
+                <p>All modules are bulit mobile-first for maximum device compatibility.</p>
+            </div>
+        </div>
+        <div id="accessibility">
+            <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Check%20Icon.png"></div>
+            <div>
+                <p>Accessibility</p>
+                <p>Support for IE8 mobile and tablet devices, screenreaders and color blind.</p>
+            </div>
+        </div>
+        <div id="typography">
+            <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Pencil%20Icon.png"></div>
+            <div>
+                <p>Fluid Typography</p>
+                <p>On different screen sizes, font automatically scale with viewport.</p>
+            </div>
+        </div>
+        <div id="customization">
+            <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Settings%20Icon.png"></div>
+            <div>
+                <p>Customization</p>
+                <p>Make any design your own using Style Editor. Personalize fonts, colors
+                     and layouts to create the look you want.</p>
+            </div>
+        </div>
+       </div>
+    </div>
+
+    <div class="policies">
+        <div id="trail">
+            <div>Supportive policies for China's smart car.</div>
+            <div>China will come up with its own smart car standards, traffic rules, laws, and regulations 
+                related to safety, according to the China Industry Innavation Alliance for the intelligent
+                 and Connected Vehicles.
+            </div>
+            <div id="trailbutton">
+                <div>CHECK OUT FEATURES</div>
+                <div>FREE TRAIL</div>
+            </div>
+        </div>
+        <div id="materials">
+            <div >
+               <img class="screenshot" src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Screen%20Shot%202018-04-26%20at%207.34.21%20pm.png">
+            </div>
+        </div>
+    </div>
+    <div class="products">
+        <div>Try Our Awesome Products</div>
+        <div id="products">
+            <div id="singleton">
+                <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Singleton.png"></div>
+                <p>Li Jun, a China Academy of Engineering academician and also director of the alliance's
+                     experts' committee, said that China will also launch design guidance for smart cars,
+                      smart map architecture and standards for test grounds. </p>
+            </div>
+            <div id="hero">
+                <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Hero.png"></div>
+                <p>Li said the smart car industry is able to enlarge the current car industry by 1 trillion
+                     yuan ($158.15 billion) and also able to boost fast development in 5G, internet of cars,
+                      big data, artificial intelligence and new-energy vehicles.</p>
+            </div>
+            <div id="portland">
+                <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Portland.png"></div>
+                <p>Zhang Junyi, a partner with NIO Capital, said that the smart car is the trend for the car
+                     industry and China's auto sector will usher in a new key development stage with the 
+                     improvement of infrastructure, technology, policies and laws.</p>
+            </div>
+        </div>
+    </div>
+    <div class="demonstration">
+        <div id="demonstrationone">
+            <img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image3.png">
+            <div>
+                <p>Learn How to Improve Your Personal Business</p>
+                <p>Li Jun, a China Academy of Engineering academician and also director of the alliance's experts'
+                     committee, said that China will also launch design guidance for smart cars, smart map 
+                     architecture and standards for test grounds.</p>
+            </div>
+        </div>      
+        <div id="demonstrationtwo">
+            <div>
+                <p>Choose Between Two Beautifully Designed Color Schemes.</p>
+                <p>China will come up with its own smart car standards, traffic rules, laws and regulations 
+                    relatingto safety, according to the China Industry Innovation Alliance for the Intelligent
+                     and Connected Vehicles.</p>
+            </div>
+            <img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image4.png">
+        </div>
+    </div>
+    <div class="crew">
+        <div id="awesomecrew">
+            <p>Our Awesome Crew</p>
+            <p>Our unique online teaching style makes learning easy for everyone. Whether you are trying to
+                 land a new job, brush up on your skills.</p>
+        </div>
+        <div id="crewpics">
+            <div class="show">
+                <div class="hide">
+                    <div class="expertinfo">
+                        <p>Ethan Dutton</p>
+                        <P>SENIOR VISUAL DESIGNER</P>
+                    </div>
+                    <div class="socialmedia">
+                        <div><img id="facebookicon" src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Facebook%20Icon.png" width="25%" height="45%"></div>
+                        <div><img id="twittericon" src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Twitter%20Icon.png" width="45%" height="45%"></div>
+                        <div><img id="instagramicon" src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Instagram%20Icon.png" width="45%" height="45%"></div>
+                    </div>
+                </div>               
+            </div>
+            <div class="show">
+                <div class="hide">
+                    <div class="expertinfo">
+                        <p>Ethan Wang</p>
+                        <P>SENIOR VISUAL DESIGNER</P>
+                    </div>
+                    <div class="socialmedia">
+                        <div><img id="facebookicon" src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Facebook%20Icon.png" width="25%" height="45%"></div>
+                        <div><img id="twittericon" src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Twitter%20Icon.png" width="45%" height="45%"></div>
+                        <div><img id="instagramicon" src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Instagram%20Icon.png" width="45%" height="45%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="show">
+                <div class="hide">
+                    <div class="expertinfo">
+                        <p>First Last</p>
+                        <P>SENIOR VISUAL DESIGNER</P>
+                    </div>
+                    <div class="socialmedia">
+                        <div><img id="facebookicon" src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Facebook%20Icon.png" width="25%" height="45%"></div>
+                        <div><img id="twittericon" src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Twitter%20Icon.png" width="45%" height="45%"></div>
+                        <div><img id="instagramicon" src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Instagram%20Icon.png" width="45%" height="45%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="show">
+                <div class="hide">
+                    <div class="expertinfo">
+                        <p>First Last</p>
+                        <P>SENIOR VISUAL DESIGNER</P>
+                    </div>
+                    <div class="socialmedia">
+                        <div><img id="facebookicon" src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Facebook%20Icon.png" width="25%" height="45%"></div>
+                        <div><img id="twittericon" src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Twitter%20Icon.png" width="45%" height="45%"></div>
+                        <div><img id="instagramicon" src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Instagram%20Icon.png" width="45%" height="45%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contacts">
+        <div id="left">
+            <div>FEEL FREE TO WRITE TO US</div>
+            <div>E-mail</div>
+            <div>Subject</div>
+            <div>Message</div>
+            <div>SEND</div>
+        </div>
+        <div id="right">
+            <div>Contacts</div>
+            <div>Make any design your own using the Style Editor. Personalize fonts, colors, and layouts to
+                 create the custom look you want.</div>
+            <div id="map">
+                <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Map%20Icon.png"></div>
+                <div><p>360 King Street, Feastrvale Trevose, PA 19057  </p></div>
+            </div>
+            <div id="phone">
+            <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Phone%20Icon.png"></div>
+                <div><p>(001)204-922-1875</p></div>
+            </div>
+            <div id="mail">
+                <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Mail%20Icon.png"></div>
+                <div><p>yourname@163.com</p></div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="learnmore">
+            <p>LEARN MORE</p>
+            <p>How it works?</p>
+            <p>Meeting tools</p>
+            <P>Live streaming</P>
+            <p>Contact method</p>
+        </div>
+        <div class="aboutus">
+            <p>About us</p>
+            <p>About us</p>
+            <p>Features</p>
+            <p>Privacy police</p>
+            <P>Terms & Conditions</P>
+        </div>
+        <div class="support">
+            <p>SUPPORT</p>
+            <p>F.A.Q.</p>
+            <p>Contact us</p>
+            <P>Live chat</P>
+            <p>Phone call</p>
+        </div>
+        <div class="enjoylife">
+            <p>ENJIOY YOUR LIFE</p>
+            <p>Great web UI kit for designers, freelancers or business.</p>
+            <div id="mediaicons">
+                <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Twitter%20Icon.png"></div>
+                <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Facebook%20Icon.png"></div>
+                <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Google%20Icon.png"></div>
+                <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Tumbler%20Icon.png"></div>
+                <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/Pinterest%20Icon.png"></div>
+                <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/LinkedIn%20Icon.png"></div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
