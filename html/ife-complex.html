@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: -apple-system,"Segoe UI",sans-serif;
+            display:flex;
+            margin:0;                  
+        }
+       
+        .navigation{
+            flex:0 0 80px;
+            background-color: rgb(29, 37, 49);
+            background-repeat: no-repeat;
+            background-size: auto;
+            position: relative;
+        }
+        .menuzone{
+            flex:0 0 230px;
+            background-color: rgb(34, 44, 60);
+            background-repeat: no-repeat;
+            background-size: auto;
+            color: white;
+            position: relative;
+            font-size:15px;           
+        }
+        .messagezone{
+            flex:1 1 calc(100%-320px);
+        }
+        .navigation > div{
+            position:fixed;        
+            left:13px;
+            border-radius: 50%;
+            width:50px;
+            height:50px;
+            display:grid;
+            place-items: center;
+        }
+        .navigation > div:nth-child(1){      
+            top:25px;
+            border:1px solid rgb(41, 157, 245);
+            background-color: rgb(41, 157, 245);       
+        }
+        .navigation > div:nth-child(2){           
+            top:100px;
+            border:1px solid rgb(146,123,228);     
+            background-color: rgb(146,123,228);     
+        }
+        .navigation > div:nth-child(3){        
+            top:175px;
+            border:1px solid rgb(230,69,41);       
+            background-color: rgb(230,69,41);       
+        }
+        .navigation > div:nth-child(4){        
+            top:250px;
+            border:1.5px solid rgb(45,56,71);     
+        }
+        .navigation > div:nth-child(5){        
+            bottom:0;
+            left:0;
+        }
+        .navigation > div:nth-child(6){        
+            bottom:0;
+            left:26px;
+        }
+        .menuzone > div{
+            margin-left:19px;
+            width:190px;
+            margin-right:15px;
+        }
+        .menuzone p{
+            margin:5px auto;
+        }
+        #menu > div, #dashboard > div{
+            height:5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        #yourproducts > div{
+            height:5%;
+            display: flex;
+            align-items: center;
+        }
+        #menutitle p,#producttitle p,#dashboardtitle p{
+            color:rgb(91,103,121); 
+            font-weight: 600;
+        }
+        #yourproducts > div:nth-child(1){
+            justify-content: space-between;
+        }
+        #book,#tutorials,#stocks,#infographics{
+            margin-right:9px;
+        }
+        #menu, #yourproducts{
+            border-bottom:2px solid rgb(42,53,71);
+        }
+        .newmessages{
+            background-color: rgb(39,155,243);
+            width:30px;
+            height:20px;
+            display:grid;
+            place-items: center;
+            border-radius: 45%;
+        }
+        .newmessages > p,.notice > p{
+            margin:0;
+        }
+        .notice{
+            background-color: rgb(221,59,31);
+            width:20px;
+            height:20px;
+            display:grid;
+            place-items: center;
+            border-radius: 100%;
+        }
+        #monthlygoals{
+            position:fixed;
+            bottom:14px;
+        }
+        .goal, .reality{
+            position: absolute;
+            bottom:0;
+        }
+        #monthlygoals > div:first-child{
+            position:absolute;
+            display:flex;
+            justify-content: space-between;
+            bottom: 25px;
+            width:190px;
+        }
+        .messagehead{
+            display:flex;
+            justify-content: space-between;
+            border-bottom:1px solid rgb(230,233,236);
+            position: relative;
+        }
+        .messagehead > div:first-child{
+            margin-left: 5%;
+            font-size:30px;
+            color:rgb(53,64,82);
+        }
+        
+        #personalpic > div{
+            position:fixed;
+            top:25px;
+            right:200px;
+        }
+        #personalpic > div:nth-child(2){
+            position:fixed;
+            top:47px;
+            right:195px;
+            background-color: white;
+            border:3px solid white;
+            border-radius: 100%;
+            height:14px;
+            display:grid;
+            place-items: center;
+        }
+        #nameinfo{
+            position:fixed;
+            top:3px;
+            right:80px;           
+        }
+        #personalinfo > div:nth-child(3){
+            position:fixed;
+            top:39px;
+            right:25px;   
+        }
+        #nameinfo > p:nth-child(1){
+            color:rgb(35,153,241);
+            margin-bottom: 0;
+            font-size: 20px;
+            font-weight: 500;
+        }
+        #nameinfo > p:nth-child(2){
+            color:rgb(201,201,201);
+            margin-top: 0;
+        }
+        .messagebody{
+            display: flex;
+            flex-flow: row nowrap;
+            font-size:14.5px;
+        }
+        .listzone{
+            flex:0 0 320px;
+            border-right: 1px solid rgb(230,233,236);
+        }
+        .conversation{
+            flex:1 1 calc(100%-380px);
+        }
+        .searchzone{
+            display:grid;
+            place-items: center;
+            border-bottom:1px solid rgb(230,233,236);
+            height:73px;
+        }
+        .searchzone > div{
+            display:flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            border:1px solid rgb(230,233,236);
+            border-radius: 3%;
+            width:300px;
+            padding-left:8px;
+            padding-right:8px;
+        }
+        #search{
+            color:rgb(194,200,211);
+        }
+        .maillist > div:nth-child(1){
+            border-left:3px solid rgb(35,153,241);
+        }
+        .brief{
+            border-bottom:1px solid rgb(230,233,236);
+            height:150px;
+        }
+        .listhead{
+            display:flex;
+            flex-flow: row nowrap;
+            padding-left:9px;
+            padding-top:10px;
+        }
+        .listhead > div:nth-child(2){
+            display:flex;
+            justify-content: space-between;
+            width:284px;
+            padding-left:9px;
+            padding-right:9px;
+        }
+        .online{
+            width:9px;
+            height:9px;
+            border-radius: 100%;
+            background-color: rgb(0,170,255);
+            margin-right:6px;
+        }
+        .listname{
+            display:flex;
+            place-items: center;
+            width:162px;
+        }
+
+        .listname > div:nth-child(2){
+            font-size: 17px;
+            color:rgb(88,93,104);
+            font-weight:400;
+        }
+        #online{
+            color:rgb(0,170,255);
+            font-size: 17px;
+            font-weight:500;
+        }
+        .company{
+            color:rgb(181,181,181);
+        }
+        .listtime{
+            color:rgb(127,143,164);
+        }
+        .listbody{
+            display:flex;
+            justify-content: space-between;
+            place-items: center;
+            padding-left:9px;
+            padding-right:9px;
+            height:70px;
+        }
+        .listbody > div:nth-child(1){
+            width:300px;
+        }
+        .unread{
+            color:white;
+            border-radius: 100%;
+            background-color: rgb(0,170,255);
+            width:23px;
+            height:23px;
+            display: grid;
+            place-items: center;
+        }
+        .listbody p{
+            margin:0;
+        }
+        .listcontent{
+            color:rgb(83,98,104);    
+            display:-webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+        }
+        .conversationhead{
+            height:73px;
+            display:flex;
+            border-bottom:1px solid rgb(230,233,236);
+        }
+        #talkingperson{
+            font-size: 17px;
+            font-weight:500;
+            color:rgb(88,93,104);
+            width:50%;
+            display:flex;
+            place-items: center;
+            padding-left:2%;
+        }
+        #talkingperson > div:nth-child(2){
+            width:8px;
+            height:8px;
+            border-radius: 100%;
+            background-color: rgb(49,173,58);
+            margin-left:9px;
+        }
+        #talkingicon{
+            display:flex;
+            width:14%;
+            justify-content: space-evenly;
+            place-items: center;;
+            margin-top:22.5px;
+            border:1px solid rgb(206,208,218);
+            border-radius: 6%;
+            height:28px;
+            background: linear-gradient(white, rgb(231, 230, 231));
+        }
+        #talkingicon > div{
+            height:28px;
+            width:28px;
+            display:grid;
+            place-items: center;
+
+        }
+        #talkingicon > div:nth-child(2){
+            border-left: 1px solid rgb(206,208,218);
+            border-right:1px solid rgb(206,208,218);
+            width:30px;
+        }
+        #pagenumber p{
+            margin:26.5px;
+            padding-left:25px;
+            border-left:1px solid rgb(206,208,218);
+        }
+        #pages{
+            display:flex;
+            width:56px;
+            justify-content: space-between;
+            place-items: center;           
+        }
+        #pages > div{
+            border:1px solid rgb(206,208,218);
+            background: linear-gradient(white, rgb(231, 230, 231));
+            width:28px;
+            height:28px;
+            display:grid;
+            place-items: center;
+        }
+        #pages > div:nth-child(1){
+            border-radius: 10% 0 0 10%;
+        }
+        #pages > div:nth-child(2){
+            border-radius: 0 10% 10% 0;
+            border-left:none;
+        }
+        .conversationcontent{
+            display:flex;
+            margin-top:10px;
+        }
+        .conversationcontent > div:nth-child(1){
+            margin:10px;
+        }
+        .conversationinfo{
+            display:flex;
+        }
+        .conversationinfo > p:nth-child(1){
+            font-size: 17px;
+            font-weight: 500;
+            color:rgb(88,93,104);
+            margin-right:8px;
+        }
+        .conversationinfo > p:nth-child(2){
+            font-size: 16px;
+            font-weight: 500;
+            color:rgb(127,143,164);
+        }
+        .maincontent{
+            color:rgb(88,93,104);
+        }
+        .maincontent p{
+            margin-top:0;
+            margin-bottom: 5px;;
+        }
+        .timestamp{
+            position: relative;
+            border-bottom:1px solid rgb(206,208,218);
+        }
+        .timestamp > p{
+            position: absolute;
+            bottom:-25px;
+            left:50%;
+            background:white;
+            padding-left:5px;
+            padding-right:5px;
+            color:rgb(163,173,188);
+        }
+        .new{
+            position: relative;
+            border-bottom:1px solid rgb(35,153,251);
+        }
+        .new > p{
+            position: absolute;
+            bottom:-25px;
+            left:50%;
+            background:white;
+            padding-left:5px;
+            padding-right:5px;
+            color:rgb(35,153,251);
+        }
+        .sendedpics{
+            display:flex;
+            margin-bottom: 15px;;
+        }
+        .sendedpics > div:nth-child(2){
+            margin-left:15px;
+            position:relative;
+        }
+        #morepics{
+            position:absolute;
+            border-radius: 100%;
+            background:rgb(106,106,113);
+            left:33%;
+            top:25%;
+            width:50px;
+            height:50px;
+            display:grid;
+            place-items: center;
+        }
+        .input{
+            display:flex;
+            width:90%;
+            margin-left:5%;
+            height:60px;
+            margin-top:15px;
+        }
+        .input> div:nth-child(1){
+            font-size:20px;
+            border:1px solid rgb(206,208,218);
+            border-right:none;
+            border-radius: 3% 0 0 3%;
+            color:grey;
+            display:grid;
+            place-items: center;
+            width:10%;
+            background:linear-gradient(white, rgb(231, 230, 231));;
+        }
+        .input> div:nth-child(2){
+            color:grey;
+            display:grid;
+            place-items: center;
+            width:90%;
+            border:1px solid rgb(206,208,218);
+            border-radius: 0 3% 3% 0;
+        }
+        #inputcontent{
+            padding-left:5px;
+            padding-right:2px;
+            border-right:1px solid grey;
+            margin-right:5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navigation">
+        <div>
+            <a href="www.baidu.com">
+                <img class="topspot" src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Item%201.png">
+            </a>
+        </div>
+        <div>
+            <a href="www.baidu.com">
+                <img class="topspot" src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Item%202.png">
+            </a>
+        </div>
+        <div>
+            <a href="www.baidu.com">
+                <img class="topspot" src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Item%203.png">
+            </a>
+        </div>
+        <div>
+            <a href="www.baidu.com">
+                <img class="topspot" src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Plus%20Icon.png">
+            </a>
+        </div>
+        <div>
+            <a href="www.baidu.com">
+                <img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Grid.png">
+            </a>
+        </div>
+        <div>
+            <a href="www.baidu.com">
+                <img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Settings.png">
+            </a>
+        </div>
+    </div>
+    <div class="menuzone">
+        <div id="menu">
+            <div id="menutitle">
+                <div><p>MENU</p></div>
+                <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Settings.png"></div>
+            </div>
+            <div>
+                <div><p>Overview</p></div>
+                <div><p></p></div>
+            </div>
+            <div>
+                <div><p>Sales</p></div>
+                <div class="newmessages"><p>54</p></div>
+            </div>
+            <div>
+                <div><p>Your Staff</p></div>
+                <div><p></p></div>
+            </div>
+            <div>
+                <div><p>Analytics & Targeting</p></div>
+                <div><p></p></div>
+            </div>
+            <div>
+                <div><p>What’s New</p></div>
+                <div><p></p></div>
+            </div>
+        </div>
+        <div id="yourproducts">
+            <div id="producttitle">
+                <div><p>YOUR PRODUCTS</p></div>
+                <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Settings.png"></div>
+            </div>
+            <div>
+                <div id="book"><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Book%20of%20Wisdom.png"></div>
+                <div><p>Books</p></div>
+            </div>
+            <div>
+                <div id="tutorials"><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Video%20Camera.png"></div>
+                <div><p>Tutorials</p></div>
+            </div>
+            <div>
+                <div  id="stocks"><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Painting.png"></div>
+                <div><p>Stocks</p></div>
+            </div>
+            <div>
+                <div  id="infographics"><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Chart.png"></div>
+                <div><p>Infographics</p></div>
+            </div>
+        </div>
+        <div id="dashboard">
+            <div id="dashboardtitle">
+                <div><p>DASHBOARD</p></div>
+                <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Settings.png"></div>
+            </div>
+            <div>
+                <div><p>Messages</p></div>
+                <div class="newmessages"><p>21</p></div>
+            </div>
+            <div>
+                <div><p>Connections</p></div>
+                <div><p></p></div>
+            </div>
+            <div>
+                <div><p>Integrations</p></div>
+                <div class="notice"><p>!</p></div>
+            </div>
+            <div>
+                <div><p>Account Settings</p></div>
+                <div><p></p></div>
+            </div>
+            <div>
+                <div><p>App Settings</p></div>
+                <div><p></p></div>
+            </div>
+        </div>
+        <div id="monthlygoals">
+            <div>
+                <div>Monthly Goals</div>
+                <div>$580/$3200</div>
+            </div>
+            <div>
+                <div class="goal"><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Base.png"></div>
+                <div class="reality"><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Fill.png"></div>
+            </div>
+        </div>
+    </div>
+    <div class="messagezone">
+        <div class="messagehead">
+            <div><p>Messages</p></div>
+            <div id="personalinfo">
+                <div id="personalpic">
+                    <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Face.png"></div>
+                    <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Status.png"></div>
+                </div>
+                <div id="nameinfo">
+                    <p>Jordan J.</p>
+                    <p>Administrator</p>
+                </div>
+                <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/dropdown.png"></div>
+            </div>
+        </div>
+        <div class="messagebody">
+            <div class="listzone">
+                <div class="searchzone">
+                    <div>
+                        <div id="search">Search</div>
+                        <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Search%20icon.png"></div>
+                    </div>
+                </div>
+                <div class="maillist">
+                    <div class="brief">
+                        <div class="listhead">
+                            <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Face1.png"></div>
+                            <div>
+                                <div>
+                                    <div class="listname">
+                                        <div class="online"></div>
+                                        <div id="online">Bessie Berry</div>
+                                    </div>
+                                    <div class="company">Twitter</div>
+                                </div>    
+                                <div class="listtime">3m</div>
+                            </div>
+                        </div>                        
+                        <div class="listbody">
+                            <div><p class="listcontent">Hi guys Ive got the O2 package and have really slow internet. A speed check online said i can get 3mbps
+                                 but it seems more like 0.5 these days, just freezing and taking ages to open pages and open audio files 
+                                 for example. I have decided to switch to the UPC package which offers 10mbps but do you think i will get it?</p></div>
+                            <div class=unread><p>4</p></div>
+                        </div>
+                    </div>
+                    <div class="brief">
+                        <div class="listhead">
+                            <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Face2.png"></div>
+                            <div>
+                                <div>
+                                    <div class="listname">
+                                        <div class="absence"></div>
+                                        <div>Victor Weber</div>
+                                    </div>
+                                    <div class="company">Adobe</div>
+                                </div>    
+                                <div class="listtime">8m</div>
+                            </div>
+                        </div>                        
+                        <div class="listbody">
+                            <div><p class="listcontent"> I shared this on my fb wall a few months back, 
+                                and I thought I'd share it here again because it's such a great...</p></div>
+                            <div><p></p></div>
+                        </div>
+                    </div>
+                    <div class="brief">
+                        <div class="listhead">
+                            <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Face3.png"></div>
+                            <div>
+                                <div>
+                                    <div class="listname">
+                                        <div class="absence"></div>
+                                        <div>Dustin Benson</div>
+                                    </div>
+                                    <div class="company">Facebook</div>
+                                </div>    
+                                <div class="listtime">Yesterday</div>
+                            </div>
+                        </div>                        
+                        <div class="listbody">
+                            <div><p class="listcontent">If there is anyone who needs an 
+                                invitation please add yourself in the comments of this post!</p></div>
+                            <div><p></p></div>
+                        </div>
+                    </div>
+                    <div class="brief">
+                        <div class="listhead">
+                            <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Face4.png"></div>
+                            <div>
+                                <div>
+                                    <div class="listname">
+                                        <div class="absence"></div>
+                                        <div>Jack Mason</div>
+                                    </div>
+                                    <div class="company">Yahoo</div>
+                                </div>    
+                                <div class="listtime">Yesterday</div>
+                            </div>
+                        </div>                        
+                        <div class="listbody">
+                            <div><p class="listcontent">BruteDC is a peer-to-peer movie+tv series sharing and
+                                 downloading platform which works on intranet inside...</p></div>
+                            <div><p></p></div>
+                        </div>
+                    </div>
+                    <div class="brief">
+                        <div class="listhead">
+                            <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Face5.png"></div>
+                            <div>
+                                <div>
+                                    <div class="listname">
+                                        <div class="absence"></div>
+                                        <div>Stephen Shelton</div>
+                                    </div>
+                                    <div class="company">Snapchat</div>
+                                </div>    
+                                <div class="listtime">13 JUN</div>
+                            </div>
+                        </div>                        
+                        <div class="listbody">
+                            <div><p class="listcontent">Yes, p2p traffic is often filtered (QoSed). Although 
+                                i do use BT on O2 wires, and in good days dl speed...</p></div>
+                            <div><p></p></div>
+                        </div>
+                    </div>
+                    <div class="brief">
+                        <div class="listhead">
+                            <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Face6.png"></div>
+                            <div>
+                                <div>
+                                    <div class="listname">
+                                        <div class="absence"></div>
+                                        <div>Sally Willis</div>
+                                    </div>
+                                    <div class="company">Twitter</div>
+                                </div>    
+                                <div class="listtime">12 JUN</div>
+                            </div>
+                        </div>                        
+                        <div class="listbody">
+                            <div><p class="listcontent">Yes, it's O2: 'internet extreme', which is no longer offered.</p></div>
+                            <div><p></p></div>
+                        </div>
+                    </div>
+                    <div class="brief">
+                        <div class="listhead">
+                            <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Face7.png"></div>
+                            <div>
+                                <div>
+                                    <div class="listname">
+                                        <div class="absence"></div>
+                                        <div>Robert Patton</div>
+                                    </div>
+                                    <div class="company">A Team</div>
+                                </div>    
+                                <div class="listtime">9 JUN</div>
+                            </div>
+                        </div>                        
+                        <div class="listbody">
+                            <div><p class="listcontent">I change my service from this 4Mb plan to their much cheaper 8Mb 
+                                plan, my speed will dramatically decrease.</p></div>
+                            <div><p></p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="conversation">
+                <div class="conversationhead">
+                    <div id="talkingperson">
+                        <div><p>Bessie Berry</p></div>
+                        <div></div>
+                    </div>
+                    <div id="talkingicon">
+                        <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/User%20icon.png"></div>
+                        <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Upload%20icon.png"></div>
+                        <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Trash%20icon.png"></div>
+                    </div>
+                    <div id="pagenumber"><p>1 of 28</p></div>
+                    <div id="pages">
+                        <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Arrow%20left.png"></div>
+                        <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Arrow%20right.png"></div>
+                    </div>
+                </div>
+                <div class="conversationbody">
+                    <div class="conversationcontent">
+                        <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Face1.png"></div>
+                        <div>
+                            <div class="conversationinfo">
+                                <p>Bessie Berry</p>
+                                <p>8:31AM</p>
+                            </div>
+                            <div class="maincontent">
+                                <p>Hi guys Ive got the O2 package and have really slow internet. 
+                                A speed check online said i can get 3mbps but it seems more like 0.5 these days, 
+                                just freezing and taking ages to open pages and open audio files for example.
+                                 I have decided to switch to the UPC package which offers 10mbps but do you think 
+                                 i will get it?</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conversationcontent">
+                        <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Face.png"></div>
+                        <div>
+                            <div class="conversationinfo">
+                                <p>Jordan Jackson</p>
+                                <p>8:31AM</p>
+                            </div>
+                            <div class="maincontent">
+                                <p>I have internet for 9 month and nevere could benefit from the full capacity of 5Mbit/s as 
+                                    it is filtered by O2 when it detect traffic on public p2p sharing in my situation all my 
+                                    internet speed slows to 512Kbit/s. I never had 400KB/s on when downloading from p2p public 
+                                    servers like torrent emule etc. I downoad with 500KB/s from private trakers instead. 
+                                    So conlcusion O2 block trafic on p2p connections. I have made hundreds of test in Italy 
+                                    and Sweden and Romania with the same file to doanload with the same setting and same antivirus 
+                                    and just needed to open ports in firewall and forward same ports and the speed was at full 
+                                    capacity in 1 minute. here in 9 month never had this luck.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timestamp"><p>Tuesday</p></div>
+                    <div class="conversationcontent">
+                        <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Face1.png"></div>
+                        <div>
+                            <div class="conversationinfo">
+                                <p>Bessie Berry</p>
+                                <p>8:31AM</p>
+                            </div>
+                            <div class="maincontent">
+                                <p>Funny comparison. so would the proper antivirus not slow down the internet as much or do you
+                                     mean a freebie doenst protect the computer from viruses?</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conversationcontent">
+                        <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Face.png"></div>
+                        <div>
+                            <div class="conversationinfo">
+                                <p>Jordan Jackson</p>
+                                <p>8:31AM</p>
+                            </div>
+                            <div class="maincontent">
+                                <p>I pay for the 4Mb/sec down, 512 Kb/sec up service from O2, and haven't had any problems. In fact,
+                                     it's relatively quick, and stable. It's not perfect, but I really don't have issues, as long as 
+                                     I keep track of what I'm doing on it. I max out at about 3 Mb/sec down, and 350 Kb/sec up. 
+                                     Probably because of a noisy telephone line, not because I'm being throttled. When my uploads 
+                                     go over 25 KB/sec (note, bytes, not bits), my download speed suffers. This is expected, as 
+                                     downloads require upload bandwidth as well. </p>
+                            </div>
+                            <div class="sendedpics">
+                                <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Photo.png"></div>
+                                <div>
+                                    <img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Photo1.png">
+                                    <div id="morepics"><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Open%20icon.png"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="new"><p>New Messages</p></div>
+                    <div class="conversationcontent">
+                        <div><img src="https://raw.githubusercontent.com/hailan6257/resume-for-baidu/master/html/image/Face1.png"></div>
+                        <div>
+                            <div class="conversationinfo">
+                                <p>Bessie Berry</p>
+                                <p>8:31AM</p>
+                            </div>
+                            <div class="maincontent">
+                                <p>I pay for the 4Mb/sec down, 512 Kb/sec up service from O2. In fact, 
+                                    it's relatively quick, and stable. It's not perfect, 
+                                    but I really don't have issues, 
+                                    as long as I keep track of what I'm doing on it. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input">
+                        <div>+</div>
+                        <div><p id="inputcontent">Well, kinda both :) but more of that second option, i`ve seen many systems infected</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
